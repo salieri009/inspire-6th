@@ -1,0 +1,7 @@
+.center {
+    display : block;
+    text-align: center;
+    margin : 500px auto;
+    font-size : 30px;
+    color: blue;
+}
