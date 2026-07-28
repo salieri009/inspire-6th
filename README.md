@@ -30,4 +30,9 @@ git branch -M main
 git push -u origin main
 ```
 
+## Contributing
+
+See `CONTRIBUTING.md` for contribution guidelines and
+`CODE_OF_CONDUCT.md` for expected behavior.
+
 
