@@ -1,7 +1,9 @@
 .center {
-    display : block;
-    text-align: center;
-    margin : 500px auto;
-    font-size : 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px; /* adjust as needed */
+    font-size: 30px;
     color: blue;
+    text-align: center;
 }
