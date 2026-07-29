@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation</title>
+    <link href="../css/reservation.css" rel="stylesheet">   
+
+</head>
+<body>
+    <div class="reservation-container">
+        <h1 class="reservation-title">Inspire Camp</h1>
+        <p class="reservation-subtitle">배송 예약 정보를 입력해주세요.</p>
+
+        <form class="reservation-form">
+            <fieldset>
+                <legend>배송예약 정보입력</legend>
+
+                <div class="form-group">
+                    <label for="product">주문상품</label>
+                    <input type="text" id="product" name="product" placeholder="예: 집캉스 패키지" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">예약자명</label>
+                    <input type="text" id="name" name="name" placeholder="예: 홍길동" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">연락처</label>
+                    <input type="text" id="phone" name="phone" placeholder="예: 010-1234-5678" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email" placeholder="예: example@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">배송주소</label>
+                    <input type="text" id="address" name="address" placeholder="예: 서울시 강남구 테헤란로 123" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="request">요청사항</label>
+                    <textarea id="request" name="request" rows="4" placeholder="예: 배송 시간이나 기타 요청사항을 적어주세요."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">예약하기</button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
