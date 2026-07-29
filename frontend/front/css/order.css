@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: 'Noto Sans KR', Arial, sans-serif;
+    background: linear-gradient(135deg, #f7f9ff 0%, #eef3ff 100%);
+    color: #222;
+}
+
+.order-container {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 32px;
+    text-align: center;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+h1[id="heading"] {
+    margin: 0 0 12px;
+    font-size: 2rem;
+    color: #1f2a44;
+}
+
+p[class~="order-message"] {
+    margin: 0 0 20px;
+    line-height: 1.7;
+    color: #667085;
+}
+
+img[alt="Thanks"] {
+    width: 100%;
+    max-width: 480px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+img[class~="thanks-image"] {
+    margin-top: 8px;
+}
+
+.info-section {
+    max-width: 700px;
+    margin: 24px auto 0;
+    padding: 24px 28px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.order-subtitle {
+    margin-top: 0;
+    color: #1f2a44;
+}
+
+.info-grid {
+    max-width: 700px;
+    margin: 20px auto 60px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.info-card {
+    background: #fff;
+    padding: 24px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.info-card h3 {
+    margin-top: 0;
+    color: #1f2a44;
+}
+
+.info-card p {
+    margin: 8px 0 0;
+    line-height: 1.6;
+    color: #667085;
+}
+
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
