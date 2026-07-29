@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    font-family: 'Noto Sans KR', Arial, sans-serif;
+    background: linear-gradient(135deg, #f7f9ff 0%, #eef3ff 100%);
+    color: #222;
+}
+
+.thanks-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.thanks-box {
+    width: 100%;
+    max-width: 560px;
+    text-align: center;
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 32px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.thanks-title {
+    margin: 0 0 12px;
+    font-size: 2rem;
+    color: #1f2a44;
+}
+
+.thanks-message {
+    margin: 0 0 20px;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #667085;
+}
+
+.thanks-name {
+    color: #ff6b6b;
+    font-weight: 700;
+}
+
+.thanks-button {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.thanks-button:hover {
+    background: #ff6b6b;
+}
