@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scriptfunction</title>
+    
+</head>
+<body>
+    <script>
+        // JavaScript 코드를 여기에 작성하세요.
+        console.log("Hello, World!");
+        //document.write("Hello, World!"); 
+        // 이렇게 작성해도 됨 
+
+        // 내장 객체 -> 요소를 탐색하고 조작, event 처리, 브라우저와 상호작용 등 다양한 기능을 제공
+        // window, document, location, history, navigator, screen 등
+        
+        //뭐 근데 여기서 함수 정의하고 호출하는거 보여주고 싶음
+        function greet(name) {
+            return "Hello, " + name + "!";
+        }
+        // 함수는 정의만 해서는 실행되지 않음. 호출해야 함
+        var message = greet("Alice");
+        console.log(message); // 콘솔에 "Hello, Alice!" 출력
+
+        // 함수 : 메서드 -> 매서드 독립실행 불가능, 함수는 독림시행 가능
+        // OOP -> 객체지향프로그래밍, 클래스 기반, 상속, 캡슐화, 다형성
+        // arrow function -> ES6, 간결한 문법, this 바인딩, 익명 함수, 콜백 함수에 자주 사용
+        // lambda function -> 함수형 프로그래밍, 일급 객체, 고차 함수, 불변성, 순수 함수, 부작용 최소화
+        // lambda 는 1회성 함수
+
+        // -> 결국 코드 블록임 : 코드 블럭이 뭐냐? 
+        // 코드 블록은 중괄호 {}로 감싸진 코드의 집합을 의미합니다.
+        // 코드 블록은 특정 조건이나 반복문, 함수 등에서 실행되는 코드의 범위를 정의하는 데 사용됩니다. 코드 블록 안에 작성된 코드는 해당 블록이 실행될 때만 실행됩니다.
+    </script>
+    
+</body>
+</html>
