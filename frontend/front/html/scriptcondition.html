@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scriptCondition</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <form class="border rounded p-4 shadow-sm">
+            <h2 class="mb-4">Bootstrap Form</h2>
+            <div class="mb-3">
+                <label for="name" class="form-label">이름</label>
+                <input type="text" class="form-control" id="name" placeholder="이름을 입력하세요">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">이메일</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">메시지</label>
+                <textarea class="form-control" id="message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">전송</button>
+        </form>
+    </div>
+
+    <script>
+        /*
+        // 조건문 : if, else if, else, switch
+        // if 문 : 조건이 참일 때 실행되는 코드 블록
+        var age = 20;
+        if (age >= 18) {
+            console.log("성인입니다.");
+        } else {
+            console.log("미성년자입니다.");
+        }
+
+        // switch 문 : 여러 조건 중 하나를 선택하여 실행되는 코드 블록
+        var day = "월요일";
+        switch (day) {
+            case "월요일":
+                console.log("오늘은 월요일입니다.");
+                break;
+            case "화요일":
+                console.log("오늘은 화요일입니다.");
+                break;
+            default:
+                console.log("오늘은 월요일도 화요일도 아닙니다.");
+        }
+
+        // script 가 ui 요소들을 control 함
+        // 데이터는 양방향으로 소통은하지못함
+        //react ㅌ`ㅌ``
+
+        //presistance 는 rdbms 를 함
+        // react 는 ui 를 control 함
+        // react 는 ui 를 control 함
+        //filtering 하고 rendering 
+
+        // 아무튼 condition 조건문은 만족할때 특정 코드를 수행하고 싶을때
+        
+        let age = 20;
+        if (age >= 18) {
+            console.log("성인입니다.");
+        } else {
+            console.log("미성년자입니다.");
+        }
+
+        // 이제 좀 꼬아버리면
+
+        // 조건문 중첩
+
+        let score = 85;
+        if (score >= 90) {
+            console.log("A 학점입니다.");
+        } else if (score >= 80) {
+            console.log("B 학점입니다.");
+        } else if (score >= 70) {
+            console.log("C 학점입니다.");
+        } else {
+            console.log("F 학점입니다.");
+        }
+
+        // 아니면 axios 나 patch 를 통한 배열 생성 
+
+        fetch('https://api.example.com/data')
+            .then(response => response.json())
+            .then(data => {
+                // data 는 배열이라고 가정
+                data.forEach(item => {
+                    if (item.value > 10) {
+                        console.log(item.name + "의 값은 10보다 큽니다.");
+                    } else {
+                        console.log(item.name + "의 값은 10 이하입니다.");
+                    }
+                });
+            })
+            .catch(error => console.error('Error:', error));
+
+            // 이렇게 하면 api 에서 가져온 데이터에 따라 조건문을 적용할 수 있음
+            // filter 를 통해서도 가능함
+            // switch 문도 가능함
+            // switch 문은 특정 값에 따라 여러 경우를 처리할 때 유용함
+            // 예를 들어, 요일에 따라 다른 메시지를 출력하는 경우
+            
+            switch (day) {
+                case "월요일":
+                    console.log("오늘은 월요일입니다.");
+                    break;
+                case "화요일":
+                    console.log("오늘은 화요일입니다.");
+                    break;
+                default:
+                    console.log("오늘은 월요일도 화요일도 아닙니다.");
+            }
+            // 이렇게 하면 day 변수의 값에 따라 다른 메시지를 출력할 수 있음
+            // 조건문은 프로그램의 흐름을 제어하는 데 매우 중요함
+            // 자판기 만들기 쌉가능
+
+            console.log("조건문을 활용한 자판기 예제");
+            let choice = window.prompt("음료를 선택하세요: 1. 콜라, 2. 사이다, 3. 환타");
+            // prompt 라는 method 는 사용자에게 입력을 받을 수 있음
+            console.log("사용자가 선택한 음료: " + choice);
+            switch (choice) {
+                case "1":
+                    console.log("콜라를 선택하셨습니다.");
+                    break;
+                case "2":
+                    console.log("사이다를 선택하셨습니다.");
+                    break;
+                case "3":
+                    console.log("환타를 선택하셨습니다.");
+                    break;
+                default:
+                    console.log("잘못된 선택입니다.");
+            }
+            // 요로코롬
+            // type 체크를 하게 되면
+            // prompt 는 string 으로 받기 때문에 숫자로 변환해서 비교하는게 좋음
+            let choiceNum = parseInt(choice); // 문자열을 숫자로 변환
+            // casting-> type casting 이라고 하는데 이거 좀 잘해야함
+
+            // 관념론적으로 보면 if 랑 type casting 은 비슷함
+            // 이거 잘 안하면
+            // type error 가 발생할 수 있음
+            // 그래서 항상 type 을 체크하는게 좋음
+            // CORS 오류가 발생하는 것도 비슷함
+            // 경우에 따라
+            // CORS 오류는 서버에서 허용하지 않은 도메인에서 
+            // forEach 보낼 때 발생함
+            // BREAK 를 잘 해야함
+
+            // IF ELSE 는 값 비교
+            // SWITCH 는 값 비교 + 타입 비교 + 다른 CASE 로 JUMP
+            // 다중 IF ELSE 면 SWITCH 가 더 효율적일 수 있음
+            // SWITCH 보다 실행적 속도라면
+            // 삼항연산자 추천 
+
+            // 삼항연산자 : 조건 ? 참일 때 실행 : 거짓일 때 실행
+            // 예제
+            let age = 20;
+            let message = (age >= 18) ? "성인입니다." : "미성년자입니다.";
+        */
+
+        document.write("조건문 예제 시작<br>");
+        let score = 85;
+        document.querySelector("#score").textContent = "점수: " + score;
+        docuemen.querySelector("#signinbutton").onclick = function() {
+            if (score >= 90) {
+                alert("A 학점입니다.");
+            } else if (score >= 80) {
+                alert("B 학점입니다.");
+            } else if (score >= 70) {
+                alert("C 학점입니다.");
+            } else {
+                alert("F 학점입니다.");
+            }
+        };
+
+        location.href = "https://www.example.com"; // 페이지 이동
+         // &
+
+         AM06_박준우
+document.querySelector("#signInBtn").onclick = () => {
+            window.alert("button clicked");
+            let email = document.querySelector("#email").value;
+            let pwd = document.querySelector("#pwd").value;
+            if (email === "" || pwd === "") {
+                document.querySelector("#err_empty_email_pwd").style = "";
+            } else {
+                document.querySelector("#err_empty_email_pwd").style = "display: none";
+                location.href = "http://www.naver.com";
+            }
+        };
+
+        // 이렇게 하면 버튼 클릭 시 이메일과 비밀번호 입력 여부를 확인하고, 입력이 없으면 오류 메시지를 표시하고, 입력이 있으면 네이버로 이동함
+        // 비동기 방식 -> 특정영역에 대한 rendering 이 진행됨
+        // display 이라는 속성으로 다양한 값을 전달할수있다
+        //요소에 대한 접근, 속성에 대한 접근 -> style.display = "none" or "block" or "inline" or "flex" 등 
+        // style. display = "none" 은 요소를 숨기고, style.display = "block" 은 요소를 보이게 함
+        // 를 할수도잇다
+    </script>
+
+    document.write("조건문 예제 끝");
+
+</body>
+</html>

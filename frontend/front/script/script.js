@@ -17,6 +17,9 @@ console.log(object.name);
 // 위에껀 홍길동이다
 
 const form = document.getElementById("reservation-form");
-form.addEventListener("submit", function(event) {
-    event.preventDefault(); // 폼 제출 기본 동작 방지
-    
+if (form) {
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // 폼 제출 기본 동작 방지
+        console.log("폼 제출이 방지되었습니다.");
+    });
+}
