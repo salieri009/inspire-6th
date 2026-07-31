@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property</title>
+    <link rel="stylesheet" href="../css/create.css">
+</head>
+<body>
+    <main class="property">
+        <div class="property-info">
+            <h1>Inspire Coffee</h1>
+            <img src="../img/coffee-blue.jpg" width="200" height="200" alt="상품 이미지" class="card-image">
+        </div>
+        <div class="property-actions">
+            <button type="button" class="card-button" id="btn">헤딩과 이미지 속성 변경</button>
+        </div>
+    </main>
+    <script>
+        // 요로 코롬
+        // DOM 요소를 가져오기
+        const heading = document.querySelector("h1");
+        const image = document.querySelector("img");
+        const button = document.querySelector("#btn");
+
+        // 버튼 클릭 이벤트 리스너 등록
+        button.addEventListener("click", () => {
+            // 헤딩과 이미지 속성 변경
+            heading.textContent = "LG CNS Inspire Coffee";
+            image.src = "../img/coffee-pink.jpg";
+            image.alt = "업데이트된 상품 이미지";
+        });
+
+        // 필요에따라서 태그에 선택자를 정의할 수 있음 
+    </script>
+
+</body>
+</html>

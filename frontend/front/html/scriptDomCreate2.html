@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../css/create.css" rel="stylesheet">
+</head>
+<body>
+    <h2>사용자 목록</h2>
+    <div class="container">
+            <div id="user"></div>
+    </div>
+
+    <script>
+
+        //async 함수는 기다리겠다는 것임 비동기로
+        //loadData 라는 변수에, async 함수를 할당함
+        const loadData = async () => {
+            try {
+                const response = await fetch('../server/users.json');
+
+                let data = await response.json();
+                // 외부 API가 단일 객체를 반환할 수도 있으니 배열로 정규화
+                if (!Array.isArray(data)) data = [data];
+                
+                const userContainer = document.getElementById( 'user');
+                
+                //for each 라는 instance method ㄹㅇㄹ 통해서 data 라는 배열을 순회함
+                //하나씩 가져온다는 것임
+                
+                data.forEach(user => {
+                    //상자를 만들고
+                    const userCard = document.createElement('div');
+                    //
+                    userCard.className = 'user-card';
+                    // 사용자 정보를 표시할 요소 생성
+                    // document.createElement 를 통해서 dom 을 생성함
+                    const userName = document.createElement('h3');
+                    // user 이라는 data 속 변수를 넣음
+                    userName.textContent = user.name;
+                    // user name 을 가져와서 h3 태그에 넣어줌
+
+                    const userEmail = document.createElement('p');
+                    userEmail.textContent = `Email: ${user.email}`;
+                    // 이건 list 안에 추가해주는 javscript 내장함수임 
+                    userCard.appendChild(userName);
+                    userCard.appendChild(userEmail);
+
+                    // 삭제 버튼을 사용자 카드마다 
+                    // const 로 오브젝트를 만들어줘요
+                    const delbt = document.createElement('button');
+                    delbt.textContent = '삭제';
+                    delbt.className = 'del-btn';
+
+                    //리스너 붙여주고
+                    delbt.addEventListener('click', () => {
+                        userCard.remove();
+                        // 이건 rerendering 을 해주는거임
+                        //splice 를 통해서 배열에서 제거해주는거임
+                        // data 배열에서 해당 사용자를 제거
+                        // 배열 내부에서 현재 user 객체의 인덱스를 찾아 제거
+                        const index = data.indexOf(user);
+                        if (index !== -1) data.splice(index, 1);
+                        // 이렇게 해도 되긴함
+                        //loadData();를 한번 더 불르면 또 힘들어진다 이말이양
+
+                    });
+
+
+
+                    userCard.appendChild(delbt);
+                    userContainer.appendChild(userCard);
+
+                    // 뭐 근데 배열을 밖으로 빼내서
+                    // 변수를 호출할때 담겨졋다가 빠지는 것으로 해두되고
+                    // 아니면 함수가 함수를 호출하는 경우로 해도 괜찮음
+                    // 함수의 function scope 를 잘 이해해야함
+                    // 근데 사실 이건 react 가 하는거임 -> 변수 scope 를 잘 이해해야함
+                    // await 를 통해서 비동기 처리를 하고 -> 그걸 통해서 dom 을 rendering 하는거임
+
+                    // 만약에 차라리 좀 더 구조화를 하면
+                    //init -> loadData -> renderData 이런식으로 해도됨
+                    // 그러면 문제가 생기면 init 에서 loadData 를 호출하고 -> loadData 에서 renderData 를 호출하는 식으로 하면됨
+                    
+                });
+            } catch (error) {
+                console.error('데이터 가져오기 실패:', error);
+            }
+            
+        }
+        loadData();
+    </script>
+    
+</body>
+</html>

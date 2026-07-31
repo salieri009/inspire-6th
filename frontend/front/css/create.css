@@ -1,0 +1,120 @@
+.container {
+    max-width: 1120px;
+    gap: 24px;
+    flew-wrap : wrap;
+    margin: 0 auto;
+    padding: 48px 20px 60px;
+}
+
+.card {
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(15, 23,
+    42, 0.08);
+    width: 100%;
+}
+
+// hover 를 해서 -5 px 위로 올라가게 하고, 그림자도 더 진하게 만들어서 입체감 있게 보이도록 한다.
+// 이건 mouse 를 ㅇver 했을 때만 적용되도록 한다.
+// 그거 말고도 많음
+
+/* Product card styles for scriptAxios.html */
+.container.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+.product {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 6px 18px rgba(12, 20, 30, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.product img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product h2 {
+    font-size: 1.05rem;
+    margin: 0;
+    color: #102a43;
+}
+
+.product p { margin: 0; color: #334e68; font-size: 0.95rem; }
+
+.product .price { font-weight: 700; color: #d64545; }
+
+.product:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(12,20,30,0.14); }
+
+.del-btn {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    align-self: flex-end;
+}
+
+.del-btn:hover { filter: brightness(0.95); }
+
+/* Property page styles */
+.property {
+    max-width: 860px;
+    margin: 48px auto;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    align-items: center;
+    background: linear-gradient(180deg, #fbfdff, #ffffff);
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(12,20,30,0.06);
+}
+
+.property-info { display:flex; flex-direction:column; gap:12px; }
+
+.property h1 { font-size:1.8rem; margin:0; color:#0b2545; }
+
+.card-image {
+    width:100%;
+    max-width:320px;
+    height:auto;
+    border-radius:12px;
+    object-fit:cover;
+    box-shadow:0 10px 24px rgba(12,20,30,0.08);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.card-image:hover { transform: translateY(-6px) scale(1.02); }
+
+.property-actions { display:flex; align-items:center; justify-content:center; }
+
+.card-button {
+    background: linear-gradient(90deg,#1f6feb,#5aa7ff);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(31,111,235,0.12);
+    transition: transform 150ms ease, filter 150ms ease;
+}
+
+.card-button:hover { transform: translateY(-3px); filter:brightness(0.98); }
+
+@media (max-width:720px) {
+    .property { grid-template-columns: 1fr; padding:18px; }
+    .property-actions { order:2; }
+}
