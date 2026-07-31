@@ -1,0 +1,77 @@
+/* mediaquery.css — examples of @media usage for mediaquery.html */
+:root{
+  --bg:#f7fbff;
+  --card:#ffffff;
+  --muted:#6b7b8a;
+  --accent:#1f6feb;
+}
+
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:var(--bg); color:#0b2545}
+
+.mq-container{
+  max-width:1100px;
+  margin:36px auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns: 1fr 320px;
+  gap:20px;
+  align-items:start;
+}
+
+.mq-header{grid-column:1 / -1; padding:12px 8px}
+.mq-header h1{margin:0 0 6px 0}
+.mq-header .lead{margin:0;color:var(--muted)}
+
+.mq-nav{grid-column:1 / -1; background:transparent; padding:8px 0}
+.mq-nav ul{list-style:none;display:flex;gap:14px;padding:0;margin:0}
+.mq-nav li{padding:6px 10px;border-radius:8px;cursor:pointer}
+.mq-nav li:hover{background:rgba(31,111,235,0.08)}
+
+.mq-main{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{background:var(--card);border-radius:12px;padding:12px;box-shadow:0 8px 20px rgba(12,20,30,0.06);display:flex;flex-direction:column;gap:8px}
+.card-thumb{width:100%;height:160px;object-fit:cover;border-radius:8px}
+.card h2{margin:0;color:#0b2545}
+.card p{margin:0;color:var(--muted)}
+.card-cta{margin-top:auto;background:var(--accent);color:#fff;border:none;padding:10px 12px;border-radius:8px;cursor:pointer}
+
+.mq-aside{background:var(--card);padding:12px;border-radius:12px;box-shadow:0 8px 20px rgba(12,20,30,0.04)}
+.mq-footer{grid-column:1 / -1;text-align:center;color:var(--muted);padding-top:10px}
+
+/* -----------------------
+   Media query examples
+   ----------------------- */
+
+/* Example 1: 모바일 레이아웃 — 네비게이션과 사이드바 숨기고 카드 한 열로 재배치 */
+@media (max-width: 768px) {
+  .mq-container{grid-template-columns:1fr;padding:14px}
+  .mq-nav{display:none}
+  .mq-aside{display:none}
+  .mq-main{grid-template-columns:1fr}
+  .card-thumb{height:220px}
+  .mq-header h1{font-size:1.25rem}
+  .card-cta{width:100%;padding:12px}
+}
+
+/* Example 2: 태블릿 가로 또는 작은 데스크탑 — 한 열+사이드바로 유지 */
+@media (min-width:769px) and (max-width:1024px){
+  .mq-container{grid-template-columns:1fr 280px}
+  .mq-main{grid-template-columns: repeat(2,1fr)}
+}
+
+/* Example 3: 넓은 화면 — 메인 콘텐츠 넓히기 */
+@media (min-width:1200px){
+  .mq-container{grid-template-columns: 2fr 360px}
+  .mq-main{grid-template-columns:repeat(3,1fr)}
+}
+
+/* Utility example: 화면이 작아지면 큰 텍스트를 줄이기 */
+@media (max-width:420px){
+  .mq-header h1{font-size:1.05rem}
+  .card-thumb{height:180px}
+}
+
+/* Accessibility note: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important}
+}

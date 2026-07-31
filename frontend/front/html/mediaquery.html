@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaQuery</title>
+    <link rel="stylesheet" href="../css/mediaquery.css">
+</head>
+<body>
+    <div class="mq-container">
+        <header class="mq-header">
+            <h1>Responsive Media Query Demo</h1>
+            <p class="lead">창 크기를 줄여서 스타일 변화 예시를 확인해보세요.</p>
+        </header>
+
+        <nav class="mq-nav">
+            <ul>
+                <li>Home</li>
+                <li>Products</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+
+        <main class="mq-main">
+            <article class="card">
+                <img src="../img/food1.jpg" alt="sample" class="card-thumb">
+                <h2>제주 흑돼지 김치찌개</h2>
+                <p>반응형 레이아웃에서 콘텐츠 영역이 어떻게 재배치되는지 보여주는 예시 카드입니다.</p>
+                <button class="card-cta">자세히 보기</button>
+            </article>
+            <article class="card">
+                <img src="../img/food2.jpg" alt="sample" class="card-thumb">
+                <h2>한라봉 에이드</h2>
+                <p>이미지 크기, 글자 크기, 버튼 배치가 화면 너비에 따라 변합니다.</p>
+                <button class="card-cta">주문하기</button>
+            </article>
+        </main>
+
+        <aside class="mq-aside">
+            <h3>사이드바</h3>
+            <p>보조 정보나 필터, 링크 등을 넣습니다. 작은 화면에서는 숨겨집니다.</p>
+        </aside>
+
+        <footer class="mq-footer">Resize the window: @media (max-width: 768px) example</footer>
+    </div>
+    <script>
+        // MediaQueryList 객체를 생성하여 미디어 쿼리 조건을 설정
+        const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+        // 미디어 쿼리 조건이 변경될 때 호출되는 콜백 함수
+        function handleMediaQueryChange(event) {
+            if (event.matches) {
+                console.log("화면 너비가 768px 이하입니다.");
+                // 여기에 화면 너비가 768px 이하일 때 수행할 작업을 작성
+            } else {
+                console.log("화면 너비가 768px 이상입니다.");
+                // 여기에 화면 너비가 768px 이상일 때 수행할 작업을 작성
+            }
+        }
+
+        // 초기 상태 확인 및 이벤트 리스너 등록
+        handleMediaQueryChange(mediaQuery);
+        mediaQuery.addEventListener("change", handleMediaQueryChange);
+        // 해상도에 따라 다른 스타일을 적용하거나, 특정 기능을 활성화/비활성화하는 등의 작업을 수행할 수 있음
+        // 모바일 환경에서는 화면 크기가 작기 때문에, 일부 요소를 숨기거나 레이아웃을 변경하는 등의 작업을 수행할 수 있음
+        // 데스크톱
+    
+</body>
+</html>
