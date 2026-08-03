@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+
+    <button type="button" id="fetchDataButton">데이터 가져오기</button>
+    <script>
+
+        //data.json 으로 가져오기 가능
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // 데이터를 활용하여 DOM에 표시하거나 다른 작업 수행
+
+            })
+            .catch(error => {
+                console.error('데이터 가져오기 실패:', error);
+            });
+            // 이렇게 해도됨
+            // 비동기 작업을 할때는 이 작업이 async 한 작업이기 때문에 -> 이 작업이 끝나기 전에 다른 작업을 할수잇음
+            // 실제 patch 가 일어나는 부분에 await 을 붙여줌
+
+            // const rseponse = await fetch('data.json'); 이렇게 해도됨
+            //try catch 를 통해 chaining 을 이용해서 
+            //data for each 로 데이터 객체를 읽어내고
+            //property 를 읽어내서 dom 에 rendering 을 할수잇음
+            
+
+
+        // Promise를 사용하여 비동기 작업 수행
+        document.querySelector("#fetchDataButton").addEventListener("click", () => {
+            // Promise를 사용하여 비동기 작업 수행
+            // fetchData 함수는 데이터를 가져오는 비동기 작업을 시뮬레이션합니다.
+            // 이름만 그렇지 사실 promise 는 비동기 작업을 관리하는 객체임
+
+            const fetchData = new Promise((resolve, reject) => {
+                // 비동기 작업 수행 (예: API 호출)
+                setTimeout(() => {
+                    const success = true; // 성공 여부를 나타내는 변수
+                    if (success) {
+                        resolve("데이터 가져오기 성공");
+                    } else {
+                        reject("데이터 가져오기 실패");
+                    }
+                }, 2000); // 2초 후에 resolve 또는 reject 호출
+            });
+
+            // Promise 처리
+            fetchData
+                .then((message) => {
+                    console.log(message);
+                    alert(message);
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert(error);
+                });
+        });
+        document.querySelector("#fetchDataButton").addEventListener("click", () => {
+            // Promise를 사용하여 비동기 작업 수행
+            // fetchData 함수는 데이터를 가져오는 비동기 작업을 시뮬레이션합니다.
+            // 이름만 그렇지 사실 promise 는 비동기 작업을 관리하는 객체임
+
+            const fetchData = new Promise((resolve, reject) => {
+                // 비동기 작업 수행 (예: API 호출)
+                setTimeout(() => {
+                    const success = true; // 성공 여부를 나타내는 변수
+                    if (success) {
+                        fetchData.then((message) => {
+                            console.log(message);
+                            alert(message);
+                        })
+                        resolve("데이터 가져오기 성공");
+                    } else {
+                        reject("데이터 가져오기 실패");
+                    }
+                }, 2000); // 2초 후에 resolve 또는 reject 호출
+            });
+
+            // Promise 처리
+            fetchData
+                .then((message) => {
+                    console.log(message);
+                    alert(message);
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert(error);
+                });
+        });
+
+        //뭐 근데 json file 을 가져오는 것도 잇음 -> fetch 를 활용해서 가져올수잇음
+        // json 으로 안주면 -> json 으로 벼노하해야지
+
+        //thrid party library 를 활용해서 promise 를 활용할수도잇음 --> 이 친구는 axios 임
+
+    </script>
+</body>
+</html>

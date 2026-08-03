@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" href="../css/skeleton.css">
+    <title>Skeleton UI && Card UI demo </title>
+    <!-- 헤더 영역에서 body 영역에 있는 script 를 불러오는 경우도 있음 -->
+    <!-- body 가 렌더링 되지 않앗는데 header 에서 script 를 불러오면 body 가 렌더링 되지 않아서 오류가 날수있음
+    그래서 그냥 body 안에 script 를 불러오는게 좋음  -->
+</head>
+<body>
+    <header class="header"><h1>제주 특 산 물 </h1>
+    <p>
+        데이터를 불러 오는 동안 skeleton UI 를 보여주고, 
+        데이터를 불러오면 card UI 로 바꿔주는 예제입니다.
+    </p>
+    </headeR>
+
+    <main id="card-container">
+        <div class="skeleton-card">
+            <div class="skeleton-image"></div>
+            <div class="skeleton-text"></div>
+            <div class="skeleton-text short"></div>
+        </div>
+        <div class="skeleton-card">
+            <div class="skeleton-image"></div>
+            <div class="skeleton-text"></div>
+            <div class="skeleton-text short"></div>
+        </div>
+        <div class="skeleton-card">
+            <div class="skeleton-image"></div>
+            <div class="skeleton-text"></div>
+            <div class="skeleton-text short"></div>
+        </div>
+        <!-- 요로코롬 일단 마무리 -->
+    </main>
+    <script src="../script/skeleton.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+</body>
+</html>

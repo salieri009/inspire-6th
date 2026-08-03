@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script</title>
+</head>
+<body>
+    <script>
+        // JavaScript 코드를 여기에 작성하세요.
+        console.log("Hello, World!");
+        //document.write("Hello, World!"); 
+        // 이렇게 작성해도 됨 
+
+        // 내장 객체 -> 요소를 탐색하고 조작, event 처리, 브라우저와 상호작용 등 다양한 기능을 제공
+        // window, document, location, history, navigator, screen 등
+
+        //array 를 활용하면 
+        // map , filter, reduce, forEach 등 다양한 메서드를 활용할 수 있음
+        //반복구문 ? 
+        // - 특정데이터를 반복할때 사용하는 문법 
+
+        //looping 구문이라고도 함
+
+        const array = [1, 2, 3, 4, 5];
+        for (let i = 0; i < array.length; i++) {
+            console.log(array[i]);
+        }
+
+        // 뭐 근데 이렇게 해도 되고 object 의 proeprty 를 가져오는 것도 잇음 
+
+        // proeprty 도 객체인 경우도 잇음 
+        // object 의 property 를 가져오는 방법은 여러가지가 있음
+        // for in 문, Object.keys(), Object.values(), Object.entries() 등
+        // for in 문은 객체의 모든 열거 가능한 속성을 반복합니다.
+        // Object.keys()는 객체의 속성 이름을 배열로 반환합니다.
+        // Object.values()는 객체의 속성 값을 배열로 반환합니다.
+        // Object.entries()는 객체의 속성 이름과 값을 배열로 반환합니다.
+        
+        // console.log 는 데이터의 흐름을 보여주기 위함
+        // DOM 에 젭근한 방법은 document.getElementById(), document.querySelector() 등
+        // NODE 라는 개념을 알아야함
+
+        // 페이지가 로딩되는 시점 -> 이것도 event 라고 할수 잇음
+        
+        let displayDiv = document.getElementById("display");
+        displayDiv.innerHTML = "Hello, DOM!";
+
+        // html 요소를 이렇게 display 할수도 잇음
+
+        document.getElementById("display").innerHTML = "아이다 재미없다";
+        // loadng 이 되더라도 출력이 되지 않을수도잇다
+
+        let img 
+        let heading
+        let cardArray = [
+            {
+                title: "집캉스",
+                image: "../img/tr-1.png",
+                description: "집에서 즐기는 휴식"
+            },
+            {
+                title: "도심 힐링",
+                image: "../img/tr-2.png",
+                description: "도심 속에서의 힐링"
+            },
+            {
+                title: "감성 캠핑",
+                image: "../img/tr-3.png",
+                description: "자연 속에서의 감성 캠핑"
+            }
+        ];
+        // 이건 특정 server 에서 가져오는 json 파일이라고 함 
+
+         cardAry.forEach( (obj) => {
+            divTag += `<div><img src='${obj.img}'>` ; 
+            divTag += `<h2>${obj.heading}</h2></div>` ;      
+        });
+
+        // 이렇게 하는건 사실 react 가 하는걸 좋아하는 애임
+        document.getElementById("display").innerHTML = divTag ;
+        // 이렇게도함
+
+        //
+
+
+
+
+    </script>
+
+    <div id="display">
+        ㅎㅇ 반갑다 
+    </div>
+    
+</body>
+</html>

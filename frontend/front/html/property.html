@@ -32,6 +32,36 @@
         });
 
         // 필요에따라서 태그에 선택자를 정의할 수 있음 
+
+        //get elements id 하면 좀 더 빠르게 가져올수있음
+        //querySelector 는 css 선택자를 이용해서 가져오는거임
+        // target 을 정해서 caption 을 바꿔주고 image 를 바꿔주는거임
+        // 근데 toggle button 으로 한다면
+        // button.addEventListener("click", () => {
+        //     if (heading.textContent === "Inspire Coffee") {
+        //         heading.textContent = "LG CNS Inspire Coffee";
+        //         image.src = "../img/coffee-pink.jpg";
+        //         image.alt = "업데이트된 상품 이미지";
+        //     } else {
+        //         heading.textContent = "Inspire Coffee";
+
+        /// 대충 요로코롬 가능
+        //this keyword 를 이용해서 this.textContent 를 바꿔주고
+        //this.textContent = "LG CNS Inspire Coffee";
+        // 이렇게 하는건데, 문제는 여기 안에 있는 것을 건드니까 주의 해야함
+
+        // media query 도 가능한데
+
+        const mediaQuery = window.matchMedia("(max-width: 600px)");
+        if (mediaQuery.matches) {
+            // 화면 너비가 600px 이하일 때 실행할 코드
+            heading.textContent = "LG CNS Inspire Coffee (모바일)";
+        } else {
+            // 화면 너비가 600px 초과일 때 실행할 코드
+            heading.textContent = "LG CNS Inspire Coffee (데스크톱)";
+        }
+
+        /// 브라우저를 좁혓다 넓혓다 하면서 함
     </script>
 
 </body>

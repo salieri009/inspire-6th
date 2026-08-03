@@ -23,3 +23,19 @@ if (form) {
         console.log("폼 제출이 방지되었습니다.");
     });
 }
+// node 기준 express 는 
+// node 기준 express 는 서버에서 데이터를 가져오는 역할을 한다
+// nodoe -> react 와 vue 를 사용가능
+// backend 에서 데이터를 가져오는 역할을 한다 -> script 만 가지고 frontend backend 를 구현이 가능하다
+// query selector 하고 selectorAll 은 차이가 있다
+// querySelector 는 하나만 가져오고 selectorAll 은 여러개를 가져온다
+// querySelectorAll 은 배열로 가져온다
+
+// 
+<div id="err_empty_email_pwd" style="display: none ;">
+                <div class="err_msg">
+                    이메일 또는 패스워드를 입력해 주세요!!
+                </div>
+            </div>
+            // log in log out 을 구현할때는 session 을 사용한다
+            

@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f8f9fa;
+    color: #1f2a44;
+    font-family: 'Noto Sans KR', Arial, sans-serif;
+}
+
+.header {
+    text-align: center;
+    padding: 40px 20px 24px;
+}
+
+.header h1 {
+    margin: 0 0 12px;
+    font-size: 2rem;
+}
+
+.header p {
+    margin: 0 auto;
+    max-width: 700px;
+    line-height: 1.6;
+    color: #4b5563;
+}
+
+#card-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.skeleton-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    animation: card-fade-in 0.45s ease both;
+}
+
+.skeleton-image {
+    height: 180px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.2s infinite linear;
+}
+
+.skeleton-text {
+    height: 14px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.2s infinite linear;
+}
+
+.skeleton-text.short {
+    width: 60%;
+}
+
+@keyframes skeleton-shimmer {
+    from {
+        background-position: 200% 0;
+    }
+    to {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes card-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 900px) {
+    #card-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    #card-container {
+        grid-template-columns: 1fr;
+    }
+}
