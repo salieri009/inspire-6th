@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Create</title>
+</head>
+<body>
+    <script>
+        const container = document.createElement("div");
+        container.className = "container";
+
+        const heading = document.createElement("h1");
+        heading.textContent = "동적 생성된 DOM 요소";
+        container.appendChild(heading);
+
+        const paragraph = document.createElement("p");
+        paragraph.textContent = "이 문단은 JavaScript를 사용하여 동적으로 생성되었습니다.";
+        container.appendChild(paragraph);
+
+        document.body.appendChild(container);
+    </script>
+
+    <div id="test"></div>
+
+    <script>
+        document.querySelector("#test").innerHTML =
+            "<h2>querySelector를 사용하여 DOM 요소를 가져왔습니다.</h2>";
+    </script>
+
+    <script>
+        const samplePromise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const success = true;
+
+                if (success) {
+                    resolve({
+                        status: 200,
+                        message: "ok",
+                        data: { name: "홍길동", age: 20 }
+                    });
+                } else {
+                    reject("비동기 작업이 실패하였습니다.");
+                }
+            }, 2000);
+        });
+
+        samplePromise
+            .then((result) => {
+                console.log("성공:", result);
+            })
+            .catch((error) => {
+                console.log("실패:", error);
+            });
+    </script>
+
+    <button type="button" aria-label="예제 실행">예제 실행</button>
+</body>
+</html>

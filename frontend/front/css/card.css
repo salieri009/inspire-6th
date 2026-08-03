@@ -59,6 +59,10 @@ body {
     padding: 20px;
     text-align: center;
     box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    -webkit-transition: transform 0.2s ease, box-shadow 0.2s ease;
+    -moz-transition: transform 0.2s ease, box-shadow 0.2s ease;
+    -ms-transition: transform 0.2s ease, box-shadow 0.2s ease;
+    -o-transition: transform 0.2s ease, box-shadow 0.2s ease;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -71,12 +75,12 @@ body {
     width: 100%;
     height: 190px;
     object-fit: cover;
-    border-radius: 50%;
     margin-bottom: 16px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+    border-radius: 50%;
 }
 
 .card-title {
@@ -105,3 +109,4 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
