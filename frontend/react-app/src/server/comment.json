@@ -1,0 +1,14 @@
+[
+    {
+        "writer": "user",
+        "comment": "elements 는 immutable 하다. 즉, 한번 생성된 요소는 변경할 수 없다. 따라서 상태(state)를 관리하고 업데이트하는 방법을 이해하는 것이 중요하다."
+    },
+    {
+        "writer": "user",
+        "comment": "컴포넌트는 UI를 구성하는 기본 단위이며, 재사용 가능하고 독립적인 코드 블록입니다. 컴포넌트를 통해 UI를 효율적으로 구성하고 유지보수할 수 있습니다."
+    },
+    {
+        "writer": "김치찌개 좋아",
+        "comment": "props 는 전달하는게 data 를 전달하는 것이 가능하지만 function 을 전달하는 것도 가능하다. data 는 one way data 방식으로 가는걸 권장"
+    }
+]
