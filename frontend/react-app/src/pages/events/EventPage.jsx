@@ -1,6 +1,10 @@
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import { api } from '../../api/axios';
+import { useNavigate } from 'react-router-dom';
+// navigate 는 react-router-dom v6 부터 useHistory 대신 쓰는 hook 이다.
+
+// transition 을 위한 hook 은 use
 
 // bootstrap css 는 앱 전체에 한 번만 import 하면 된다 (src/index.js 에서 처리).
 // 컴포넌트마다 import 하면 같은 css 가 중복으로 번들에 들어간다.
