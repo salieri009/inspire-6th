@@ -112,3 +112,9 @@ export default LibraryPage;
 //
 // 데이터 fetch 자체는 렌더링 중에 하면 안 되고 useEffect 안에서 해야 한다.
 // 렌더링 함수 안에서 호출하면 매 렌더링마다 요청이 나가서 무한 루프가 된다.
+
+
+// JPA MYBATIS
+// JPAQL 
+// 1. select * from book where category = 'Science' order by title asc
+// 2. select * from book where category = 'Science' order by title desc
