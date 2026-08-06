@@ -1,4 +1,4 @@
-import MaterialButton from '../../components/materials/materialButton';
+import MaterialButton from '../../components/material/MaterialButton';
 
 const ButtonPage = () => {
 

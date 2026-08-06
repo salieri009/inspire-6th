@@ -4,11 +4,11 @@ import './index.css';
 // bootstrap css 는 앱 전체에서 한 번만 import 한다.
 // 컴포넌트마다 import 하면 같은 css 가 중복으로 번들에 들어간다.
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ButtonPage from './pages/Materials/ButtonPage';
-import Comment from './pages/Sample/Comment';
-import CapacityPage from './reactive/CapacityPage';
-import EventPage from './pages/events/EventPage';
-import LibraryPage from './pages/Sample/LibraryPage';
+import ButtonPage from './pages/material/ButtonPage';
+import Comment from './pages/sample/CommentPage';
+import CapacityPage from './pages/reactive/CapacityPage';
+import EventPage from './pages/event/EventPage';
+import LibraryPage from './pages/sample/LibraryPage';
 
 // script module 을 외부에서 가져온다
 // css 도 module 로 인식해서 가져온다
@@ -38,6 +38,15 @@ root.render(
   // 그래서 console.log 가 두 번 찍히는 건 정상이며, 프로덕션 빌드에서는 한 번만 실행된다.
   <React.StrictMode>
     <App />
+  </React.StrictMode>
+);
+
+// router
+import TestRouterApp from './TestRouterApp';
+const routerRoot = ReactDOM.createRoot(document.getElementById('router-root'));
+root.render(
+  <React.StrictMode>
+    <TestRouterApp />
   </React.StrictMode>
 );
 

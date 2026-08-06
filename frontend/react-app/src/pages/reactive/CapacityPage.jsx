@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Button from '../components/materials/materialButton';
+import Button from '../../components/material/MaterialButton';
 
 const CapacityPage = () => {
     // state 가 바뀔 때마다 이 함수 전체가 다시 호출된다는 걸 눈으로 확인하는 용도.
