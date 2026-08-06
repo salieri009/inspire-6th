@@ -1,4 +1,6 @@
 import MaterialButton from '../../components/material/MaterialButton';
+import StyledButton from '../../components/styled/Button';
+import BackHome from '../../components/common/BackHome';
 
 const ButtonPage = () => {
 
@@ -16,6 +18,7 @@ const ButtonPage = () => {
 
 	return (
 		<div style={{ padding: '2rem', display: 'grid', gap: '1rem' }}>
+			<BackHome />
 			<h1>Button Page</h1>
 			<div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
 				{/* 함수 "자체"를 넘긴다. saveGameHandler() 처럼 괄호를 붙이면
@@ -39,6 +42,12 @@ const ButtonPage = () => {
 					color="success"
 					onClick={() => console.log('슬롯 3 저장')}
 				/>
+			</div>
+
+			{/* styled-components 로 만든 버튼도 여기서 함께 확인할 수 있다. */}
+			<div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+				<StyledButton title="Styled 버튼" onClick={() => console.log('styled 버튼 클릭')} />
+				<StyledButton title="Styled 버튼 (outline)" variant="outline" onClick={() => console.log('styled outline 클릭')} />
 			</div>
 		</div>
 	);

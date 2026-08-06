@@ -1,4 +1,5 @@
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import BackHome from '../../components/common/BackHome';
 
 // useLocation().state 와 useSearchParams() 는 둘 다 "이전 화면에서 넘어온 정보"를 읽지만 성격이 다르다.
 // - location.state : navigate('/success', { state: {...} }) 로 넘긴 휘발성 데이터.
@@ -16,6 +17,7 @@ const SuccessPage = () => {
 
     return (
         <div>
+            <BackHome />
             <h1>Success Page</h1>
             <p>Your action was successful!</p>
             {user && <p>Welcome, {user}!</p>}
@@ -27,7 +29,7 @@ const SuccessPage = () => {
                     {sort && `Sort: ${sort}`}
                 </p>
             )}
-            <Link to="/events">Go back to Events</Link>
+            <Link to="/samples/event">Go back to Events</Link>
         </div>
     );
 };

@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import { api } from '../../api/axios';
 import { useNavigate } from 'react-router-dom';
+import BackHome from '../../components/common/BackHome';
 // navigate 는 react-router-dom v6 부터 useHistory 대신 쓰는 hook 이다.
 
 // transition 을 위한 hook 은 use
@@ -10,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 // 컴포넌트마다 import 하면 같은 css 가 중복으로 번들에 들어간다.
 
 const EventPage = () => {
+    const navigate = useNavigate();
     // 이벤트는 "어떤 입력이 바뀌었는지"를 함수로 처리한다.
     // 폼 입력값은 state로 관리해야 화면과 데이터가 항상 동기화된다.
     // value + onChange 를 같이 주는 방식을 controlled component 라고 한다.
@@ -50,6 +52,7 @@ const EventPage = () => {
             });
             setMessage('가입 성공');
             console.log(response.data);
+            navigate('/samples/event/success', { state: { user: email, from: '/samples/event' } });
         } catch (requestError) {
             // axios 는 4xx/5xx 를 예외로 던지므로 try/catch 로 받아야 한다.
             setMessage('가입 실패');
@@ -59,6 +62,7 @@ const EventPage = () => {
 
     return (
         <div className="container py-4">
+            <BackHome />
             <h1 className="mb-4">Event Page</h1>
             <p className="text-muted">
                 입력 이벤트가 발생할 때마다 state를 갱신하는 기본 패턴을 보여준다.

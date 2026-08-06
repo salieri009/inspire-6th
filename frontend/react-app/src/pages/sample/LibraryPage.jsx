@@ -1,5 +1,6 @@
 
 import '../../styles/book.css';
+import BackHome from '../../components/common/BackHome';
 
 // 컴포넌트 밖에 있는 데이터는 렌더링될 때마다 다시 만들어지지 않는다.
 // 바뀌지 않는 상수 데이터라면 이렇게 밖에 두는 편이 낫다.
@@ -30,6 +31,7 @@ const BookCard = ({ book }) => {
 const LibraryPage = () => {
     return (
         <div>
+            <BackHome />
             <h1>Library Page</h1>
             <p>
                 JSX는 JavaScript 안에서 HTML처럼 보이는 문법을 사용해서 UI를 선언적으로

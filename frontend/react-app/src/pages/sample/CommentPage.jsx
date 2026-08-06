@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { api } from '../../api/axios';
+import BackHome from '../../components/common/BackHome';
 
 const Comment = () => {
 
@@ -46,6 +47,7 @@ const Comment = () => {
     
 	return (
 		<section style={{ padding: '2rem', display: 'grid', gap: '1rem' }}>
+			<BackHome />
 			<h2>Comment List</h2>
 			<ul style={{ paddingLeft: '1.25rem' }}>
 				{/* key 는 index 가 아니라 데이터 고유의 id 를 쓴다.

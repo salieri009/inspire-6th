@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from '../../components/material/MaterialButton';
+import BackHome from '../../components/common/BackHome';
 
 const CapacityPage = () => {
     // state 가 바뀔 때마다 이 함수 전체가 다시 호출된다는 걸 눈으로 확인하는 용도.
@@ -45,6 +46,7 @@ const CapacityPage = () => {
     //===============================================================================
     return (
         <section style={{ padding: '2rem', display: 'grid', gap: '1rem' }}>
+            <BackHome />
             <h1>Capacity Page</h1>
             <p>입장인원 : {cnt}</p>
             <p>최대 수용 인원 : {MAX_CAPACITY}</p>
