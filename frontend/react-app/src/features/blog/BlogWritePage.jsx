@@ -45,7 +45,10 @@ const BlogWritePage = () => {
                 await updatePost(postId, values);
                 navigate(`/blog/${postId}`);
             } else {
-                const created = await createPost(values);
+                const created = await createPost({
+                    ...values,
+                    createdAt: new Date().toISOString().slice(0, 10),
+                });
                 navigate(`/blog/${created.id}`);
             }
         } catch (requestError) {

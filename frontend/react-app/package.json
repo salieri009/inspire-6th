@@ -7,7 +7,8 @@
     "dev": "set PORT=3004 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "json-server --watch db.json --port 4000"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -33,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "json-server": "^0.17.4"
   }
 }

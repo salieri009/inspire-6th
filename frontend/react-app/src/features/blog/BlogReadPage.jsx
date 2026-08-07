@@ -81,3 +81,7 @@ const BlogReadPage = () => {
 };
 
 export default BlogReadPage;
+
+
+// const [comments, setComments] = useState([]);
+// commnets 는 댓글 목록을 저장하는 상태 변수입니다. useState 훅을 사용하여 초기값을 빈 배열로 설정합니다. setComments 함수는 comments 상태를 업데이트하는 데 사용됩니다.

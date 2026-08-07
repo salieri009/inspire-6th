@@ -73,3 +73,28 @@ const SigninPage = () => {
 };
 
 export default SigninPage;
+
+
+// Q)
+//     - axios 통신(get(blogs) , params X)
+//     - 데이터를 reactive state 관리(setXXXX) 
+//     - 렌더링시점에 데이터 바인딩이 X, effect  필요함!!
+
+
+// const fetchPosts = async () => {
+//     try {
+//         const data = await getPosts();
+//         setPosts(data);
+//     } catch (requestError) {
+//         setError('게시글을 불러오지 못했습니다.');
+//         console.error(requestError);
+//     } finally {
+//         setLoading(false);
+
+
+//     }
+// };
+
+// const loadData = async () => {
+//     await api.get('/blogs')
+//         .then((response) => {

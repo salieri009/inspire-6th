@@ -13,5 +13,50 @@
         "id": 3,
         "writer": "김치찌개 좋아",
         "comment": "props 는 전달하는게 data 를 전달하는 것이 가능하지만 function 을 전달하는 것도 가능하다. data 는 one way data 방식으로 가는걸 권장"
+    },
+    {
+        "id": 4,
+        "writer": "박훅스",
+        "comment": "useEffect 의존성 배열을 빈 배열로 두면 mount 시 딱 한 번만 실행돼요. 배열 자체를 생략하면 매 렌더링마다 실행돼서 무한 루프에 빠질 수 있으니 주의!"
+    },
+    {
+        "id": 5,
+        "writer": "이컴포넌트",
+        "comment": "key 는 props 가 아니라서 자식 컴포넌트에서 props.key 로 읽을 수 없다는 거 오늘 처음 알았어요."
+    },
+    {
+        "id": 6,
+        "writer": "정라우터",
+        "comment": "좋은 글 감사합니다."
+    },
+    {
+        "id": 7,
+        "writer": "최스타일",
+        "comment": "styled-components 로 하니까 className 충돌 걱정이 없어서 편하네요. props 로 조건부 스타일 주는 부분도 실습해보고 싶습니다."
+    },
+    {
+        "id": 8,
+        "writer": "한통신",
+        "comment": "axios interceptor 로 401 응답 공통 처리하는 부분 실습 코드 있으면 공유 부탁드려요!"
+    },
+    {
+        "id": 9,
+        "writer": "김치찌개 좋아",
+        "comment": "제어 컴포넌트 / 비제어 컴포넌트 차이 설명이 이해가 잘 됐습니다. 폼 검증 실습할 때 제어 컴포넌트로 먼저 연습해봐야겠어요."
+    },
+    {
+        "id": 10,
+        "writer": "user",
+        "comment": "질문 있습니다. loading 상태와 error 상태를 동시에 true 로 둘 일이 있을까요, 아니면 항상 배타적으로 관리하는 게 맞나요?"
+    },
+    {
+        "id": 11,
+        "writer": "박훅스",
+        "comment": "async 함수를 useEffect 콜백에 직접 못 넣는 이유가 Promise 를 cleanup 함수로 취급해서라는 설명 덕분에 헷갈리던 부분이 풀렸습니다."
+    },
+    {
+        "id": 12,
+        "writer": "이컴포넌트",
+        "comment": "실습 자료 잘 보고 있습니다. 다음 시간에는 json-server 로 CRUD 전체 흐름도 다뤄주시면 좋을 것 같아요."
     }
 ]

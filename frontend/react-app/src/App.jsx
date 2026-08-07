@@ -5,6 +5,7 @@ import ButtonPage from './pages/material/ButtonPage';
 import CapacityPage from './pages/reactive/CapacityPage';
 import LibraryPage from './pages/sample/LibraryPage';
 import CommentPage from './pages/sample/CommentPage';
+import SampleBlogReadPage from './pages/sample/BlogReadPage';
 import RenderingPage from './pages/rendering/RenderingPage';
 import EventPage from './pages/event/EventPage';
 import SuccessPage from './pages/event/SuccessPage';
@@ -32,6 +33,7 @@ const App = () => {
                 <Route path="/samples/capacity" element={<CapacityPage />} />
                 <Route path="/samples/library" element={<LibraryPage />} />
                 <Route path="/samples/comment" element={<CommentPage />} />
+                <Route path="/samples/blog/:postId" element={<SampleBlogReadPage />} />
                 <Route path="/samples/rendering" element={<RenderingPage />} />
                 <Route path="/samples/event" element={<EventPage />} />
                 <Route path="/samples/event/success" element={<SuccessPage />} />

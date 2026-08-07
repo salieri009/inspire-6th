@@ -6,8 +6,16 @@ import BackHome from '../../components/common/BackHome';
 // 바뀌지 않는 상수 데이터라면 이렇게 밖에 두는 편이 낫다.
 const books = [
     { category: 'Fiction', title: 'The Great Gatsby', author: 'F. Scott Fitzgerald' },
+    { category: 'Fiction', title: '1984', author: 'George Orwell' },
+    { category: 'Fiction', title: 'To Kill a Mockingbird', author: 'Harper Lee' },
     { category: 'Self-Help', title: 'Atomic Habits', author: 'James Clear' },
+    { category: 'Self-Help', title: 'Deep Work', author: 'Cal Newport' },
     { category: 'Science', title: 'A Brief History of Time', author: 'Stephen Hawking' },
+    { category: 'Science', title: 'Cosmos', author: 'Carl Sagan' },
+    { category: 'Science', title: 'The Selfish Gene', author: 'Richard Dawkins' },
+    { category: 'Technology', title: 'Clean Code', author: 'Robert C. Martin' },
+    { category: 'Technology', title: "You Don't Know JS", author: 'Kyle Simpson' },
+    { category: 'History', title: 'Sapiens', author: 'Yuval Noah Harari' },
 ];
 
 // filter 는 조건에 맞는 원소만 골라 "새 배열"을 만든다. (원본은 그대로)
@@ -120,3 +128,5 @@ export default LibraryPage;
 // JPAQL 
 // 1. select * from book where category = 'Science' order by title asc
 // 2. select * from book where category = 'Science' order by title desc
+
+//
