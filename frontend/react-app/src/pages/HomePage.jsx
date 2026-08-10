@@ -18,6 +18,12 @@ const sections = [
         ],
     },
     {
+        title: '날씨',
+        links: [
+            { to: '/weather', label: 'Weather (현재 위치 / 도시 선택)' },
+        ],
+    },
+    {
         title: '학습 예제',
         links: [
             { to: '/samples/button', label: 'Button (MUI + styled-components)' },

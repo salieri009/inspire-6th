@@ -19,6 +19,8 @@ import BlogIndexPage from './features/blog/BlogIndexpage';
 import BlogReadPage from './features/blog/BlogReadPage';
 import BlogWritePage from './features/blog/BlogWritePage';
 
+import WeatherPage from './features/forcast/pages/WeatherPage';
+
 // 앱 전체에서 BrowserRouter 는 여기 한 곳에서만 감싼다.
 // (예전에는 TestRouterApp / ToyRouterApp / BlogApp 이 각자 BrowserRouter 를
 //  따로 갖고 있었는데, 그중 어느 것도 index.js 에서 실제로 렌더링되지 않았다.
@@ -47,6 +49,8 @@ const App = () => {
                 <Route path="/blog/write" element={<BlogWritePage />} />
                 <Route path="/blog/:postId" element={<BlogReadPage />} />
                 <Route path="/blog/:postId/edit" element={<BlogWritePage />} />
+
+                <Route path="/weather" element={<WeatherPage />} />
 
                 <Route path="*" element={<ErrorPage />} />
             </Routes>
