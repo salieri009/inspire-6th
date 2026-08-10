@@ -20,6 +20,7 @@ import BlogReadPage from './features/blog/BlogReadPage';
 import BlogWritePage from './features/blog/BlogWritePage';
 
 import WeatherPage from './features/forcast/pages/WeatherPage';
+import MapWeatherPage from './features/openapi/page/MapWeatherPage';
 
 // 앱 전체에서 BrowserRouter 는 여기 한 곳에서만 감싼다.
 // (예전에는 TestRouterApp / ToyRouterApp / BlogApp 이 각자 BrowserRouter 를
@@ -51,6 +52,7 @@ const App = () => {
                 <Route path="/blog/:postId/edit" element={<BlogWritePage />} />
 
                 <Route path="/weather" element={<WeatherPage />} />
+                <Route path="/map-weather" element={<MapWeatherPage />} />
 
                 <Route path="*" element={<ErrorPage />} />
             </Routes>

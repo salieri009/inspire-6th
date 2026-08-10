@@ -1,69 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from 'react';
+import useOpenWeather from '../../../hooks/useOpenWeather';
 
-const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather';
-const API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
-
+// 도시 목록에서 고르면 도시명으로, 처음 들어오면 geolocation 으로 조회한다.
+// 실제 API 호출/로딩/에러 상태는 useOpenWeather 훅이 관리하므로 이 페이지는
+// "무엇을 보여줄지"만 신경 쓰면 된다.
 const WeatherPage = () => {
-    // 나라 + 국가 가져오기
-    const cities = ["Seoul, KR", "Busan, KR", "Daejeon, KR", "Incheon, KR"];
+    const cities = ['Seoul, KR', 'Busan, KR', 'Daejeon, KR', 'Incheon, KR'];
 
     const [city, setCity] = useState('');
-    // 객체 담기
-    const [weather, setWeather] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState('');
-
-    const fetchWeather = async (params) => {
-        if (!API_KEY) {
-            setError('REACT_APP_OPENWEATHER_API_KEY 가 설정되어 있지 않습니다.');
-            return;
-        }
-
-        setLoading(true);
-        setError('');
-
-        try {
-            const response = await axios.get(WEATHER_API_URL, {
-                params: { ...params, appid: API_KEY, units: 'metric', lang: 'kr' },
-            });
-            setWeather(response.data);
-        } catch (requestError) {
-            setError('날씨 정보를 불러오지 못했습니다.');
-            console.error(requestError);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const getCurrentLocation = () => {
-        if (!navigator.geolocation) {
-            setError('이 브라우저는 위치 정보를 지원하지 않습니다.');
-            return;
-        }
-
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const lat = position.coords.latitude;
-                const lon = position.coords.longitude;
-                fetchWeather({ lat, lon });
-            },
-            (err) => {
-                console.error('Failed to get location', err);
-                setError('현재 위치를 가져오지 못했습니다.');
-            }
-        );
-    };
+    const { weather, loading, error, fetchByCity, locate } = useOpenWeather();
 
     useEffect(() => {
-        getCurrentLocation();
-    }, []);
+        locate();
+    }, [locate]);
 
     const handleCityChange = (event) => {
         const selectedCity = event.target.value;
         setCity(selectedCity);
         if (selectedCity) {
-            fetchWeather({ q: selectedCity });
+            fetchByCity(selectedCity);
         }
     };
 
@@ -81,14 +36,11 @@ const WeatherPage = () => {
             <p>Selected city: {city || '현재 위치'}</p>
             {loading && <p>날씨 정보를 불러오는 중입니다...</p>}
             {error && <p>{error}</p>}
+            {/* 원본 API 응답을 그대로 확인하기 위한 디버그용 출력 (features/openapi/ui/WeatherBox 는
+                같은 데이터를 사람이 보기 좋은 카드 형태로 가공해서 보여준다) */}
             {weather && <pre>{JSON.stringify(weather, null, 2)}</pre>}
         </div>
     );
 };
 
 export default WeatherPage;
-// 내 위치 기반 , 위도 경도 latitude && longitude
-//stringify() : 객체를 문자열로 변환
-// 예시
-// const obj = { name: 'John', age: 30 };
-///

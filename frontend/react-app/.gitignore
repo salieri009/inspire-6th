@@ -24,6 +24,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# json-server 가 저장 시점마다 만드는 자동 백업 스냅샷 (db.json 자체는 커밋 대상)
+db-*.json
+
 # editor / os
 .DS_Store
 Thumbs.db

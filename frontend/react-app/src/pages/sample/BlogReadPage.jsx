@@ -87,6 +87,21 @@ const BlogReadPage = () => {
         }
     };
 
+    // 댓글 수정: PUT 대신 PATCH 를 쓴다 -- comment 필드 하나만 바꾸는 것이므로
+    // 게시글 수정(updatePost, 전체 교체)과 달리 나머지 필드(postId/writer)를
+    // 다시 보낼 필요가 없다. 성공하면 배열 전체를 다시 불러오지 않고 해당 id 만 교체한다.
+    const commentUpdateHandler = async (id, nextComment) => {
+        try {
+            await api.patch(`/comments/${id}`, { comment: nextComment });
+            setComments((prev) =>
+                prev.map((c) => (c.id === id ? { ...c, comment: nextComment } : c))
+            );
+        } catch (requestError) {
+            setError('댓글을 수정하지 못했습니다.');
+            console.error(requestError);
+        }
+    };
+
     if (loading) {
         return <p>글을 불러오는 중입니다...</p>;
     }
@@ -109,7 +124,11 @@ const BlogReadPage = () => {
                     <p style={{ whiteSpace: 'pre-wrap' }}>{post.content}</p>
 
                     <h3>댓글 {comments.length}개</h3>
-                    <Blogcommentlist comments={comments} onDelete={commentDeleteHandler} />
+                    <Blogcommentlist
+                        comments={comments}
+                        onDelete={commentDeleteHandler}
+                        onUpdate={commentUpdateHandler}
+                    />
 
                     {/* 댓글 입력 : 로그인 사용자 개념이 없는 샘플이라 이름을 직접 입력받는다. */}
                     <div style={{ display: 'grid', gap: '0.5rem', maxWidth: 480 }}>
