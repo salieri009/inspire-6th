@@ -1,5 +1,7 @@
 package backend.Java_practice.blogs;
 
+import backend.Java_practice.blogs.blogDto.BlogRequestDTO;
+
 public class blogApp {
     static public void main(String[] args) {
         System.out.println("Hello World!");
@@ -11,9 +13,9 @@ public class blogApp {
                 // DTO 를 통해서 데이터를 전달할 수 있다. DTO 는 데이터를 전달하기 위한 객체이다.
                 /// 이렇게 biding 이 된다 이거야
 
-                soutln(blogRequestDTO.getTitle());
+                System.out.println(blogRequestDTO.getTitle());
 
-                //뭐 근데 logger 를 쓰면 soutln 을 안써도 된다. soutln 은 그냥 콘솔에 출력하는거고, logger 는 로그를 남기는거다. 로그를 남기면 나중에 문제가 생겼을 때, 로그를 보고 문제를 해결할 수 있다.
+                //뭐 근데 logger 를 쓰면 System.out.println 을 안써도 된다. System.out.println 은 그냥 콘솔에 출력하는거고, logger 는 로그를 남기는거다. 로그를 남기면 나중에 문제가 생겼을 때, 로그를 보고 문제를 해결할 수 있다.
                 // logger 를 쓰는게 권장되긴해
     }
 
