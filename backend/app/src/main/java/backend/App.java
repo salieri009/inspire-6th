@@ -21,6 +21,7 @@ public class App {
         System.out.println(new App().getGreeting());
 
         Student student = new Student("John Doe", 20, "Computer Science");
+        student.displayInfo();
 
     }
 }
