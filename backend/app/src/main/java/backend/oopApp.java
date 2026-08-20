@@ -32,3 +32,33 @@ public class oopApp {
         System.out.println("합계: " + sum);
     }
 }
+// 전위 연산
+// 후위 연산에 따라 접근 방식이 달라진다
+
+// idx ++ 
+// ++idx 
+
+// 기본 데이터 타입에서 형변환이 가능하다 
+// // public class A {
+//     int a = 10;
+//     double b = 20.5;
+
+//     public void print() {
+//         System.out.println("a: " + a);
+//         System.out.println("b: " + b);
+//     }
+// }
+// // public class B extends A {
+//     int c = 30;
+
+//     public void print() {
+//         super.print(); // 부모 클래스의 print() 호출
+//         System.out.println("c: " + c);
+//     }
+// }
+// public void setInt(int value) {
+//     this.value = value;
+// }
+// 묵시적 형변환이 일어나게 됬으
+
+

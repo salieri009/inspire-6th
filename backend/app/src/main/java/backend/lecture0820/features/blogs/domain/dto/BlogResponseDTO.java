@@ -1,4 +1,4 @@
-package backend.lecture0819.features.blogs.domain.dto;
+package backend.lecture0820.features.blogs.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

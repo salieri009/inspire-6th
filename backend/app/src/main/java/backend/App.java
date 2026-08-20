@@ -29,3 +29,7 @@ public class App {
 
 
 //has a 설계 
+
+//array -> dynamic하게 resizing 가 불가능
+//arraylist -> dynamic하게 resizing 가 가능
+// 
