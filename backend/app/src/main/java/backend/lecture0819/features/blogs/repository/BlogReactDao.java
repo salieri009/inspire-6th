@@ -2,6 +2,7 @@ package backend.lecture0819.features.blogs.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import backend.lecture0819.features.blogs.domain.dto.BlogResponseDTO;
 
@@ -29,8 +30,16 @@ public class BlogReactDao {
     } // constructor block end 
 
     public List<BlogResponseDTO> findByAll() {
-        System.out.println("debug >>>> blog dao findByAll() "); 
-        return blogs ; 
+        System.out.println("debug >>>> blog dao findByAll() ");
+        return blogs ;
     }
-    
+
+    public Optional<BlogResponseDTO> findById(int blogId) {
+        System.out.println("debug >>>> blog dao findById() params :  "+blogId );
+
+        return blogs.stream()
+            .filter( blog -> blog.getBlogId() == blogId )
+            .findAny() ;
+    }
+
 }

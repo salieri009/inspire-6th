@@ -24,8 +24,9 @@ public class BlogReactServiceImpl implements BlogReactService {
 
     @Override
     public BlogResponseDTO read(int blogId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'read'");
+        System.out.println("debug >>>> blog service read params :  "+blogId);
+        return dao.findById(blogId)
+                .orElseThrow(() -> new RuntimeException(blogId+" 정보를 찾을 수 없습니다."));
     }
 
     @Override

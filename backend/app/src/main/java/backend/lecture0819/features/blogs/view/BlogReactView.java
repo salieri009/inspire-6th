@@ -43,8 +43,11 @@ public class BlogReactView {
                 System.out.print("원하시는 메뉴 번호를 입력하세요 : "); 
                 Integer number = Integer.parseInt( scan.nextLine() ); 
                 switch (number) {
-                    case 1 : 
+                    case 1 :
                         list();
+                        break ;
+                    case 2 :
+                        read();
                         break ;
                     case 99:
                         exit() ;        
@@ -77,7 +80,19 @@ public class BlogReactView {
 
         // stream api 출력 == json rendering (react)  
         response.stream()
-            .forEach(System.out::println); 
+            .forEach(System.out::println);
+
+    }
+
+    public void read() {
+        System.out.println();
+        System.out.println(">>>> 상세페이지 정보 ") ;
+        String endPoint = "read.inspire" ;
+        System.out.print("키(blogId) 입력 : ");
+
+        int blogId = Integer.parseInt( scan.nextLine() ) ;
+        BlogResponseDTO response = front.read(endPoint, blogId) ;
+        System.out.println( (response != null ) ? response : "정보없음" );
 
     }
 
