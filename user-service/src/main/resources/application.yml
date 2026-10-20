@@ -1,0 +1,97 @@
+server:
+#  port: 0
+  port: 8083 # 실습 편의상 고정
+
+spring:
+  application:
+    name: user-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  zipkin:
+    base-url: http://127.0.0.1:9411
+    enabled: true
+#  config:
+#    import: optional:configserver:http://localhost:8888
+#  cloud:
+#    config:
+#      name: ecommerce
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+      path: /h2-console
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;
+#    username: sa
+#    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  security:
+    user:
+      name: user
+      password: ${BCRYPT_HASH} # 환경변수로 주입 (.env.example 참고)
+#      password: "{bcrypt}${BCRYPT_HASH}"
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    com.example.userservice.client: DEBUG
+  # Loki(Alloy)가 수집할 로그 파일
+  file:
+    name: ${OBS_LOG_DIR:C:/Users/user/tools/observability/logs}/${spring.application.name}.log
+  # 패턴 설정을 안해도 기본 패턴에 traceId/spanId가 출력됨
+#  pattern:
+#    correlation: '[${spring.application.name:},%X{traceId:-},%X{spanId:-}] '
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    prefer-ip-address: true # 호스트명 대신 IP로 등록
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+greeting:
+  message: Welcome to the Simple E-commerce.
+
+#token:
+#  expiration-time: 86400000 # 1 days
+#  secret: ${TOKEN_SECRET}
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0 # 100% 다 전달
+    propagation: # 모든 서비스가 같은 형식을 써야 추적이 끊기지 않음
+      consume: B3
+      produce: B3
+  zipkin:
+    tracing:
+      # Zipkin 서버에 로그를 전달 및 저장하고자 할 때 쓰일 엔드포인트
+      endpoint: http://localhost:9411/api/v2/spans
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+          - health
+          - beans
+          - info
+          - busrefresh
+          - metrics
+          - prometheus
+  # Prometheus 수집용: 모든 메트릭에 application 태그를 붙이고, p95/p99 계산용 히스토그램 활성화
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true

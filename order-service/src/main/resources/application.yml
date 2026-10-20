@@ -1,0 +1,72 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: order-service
+  zipkin:
+    base-url: http://127.0.0.1:9411
+    enabled: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+      path: /h2-console
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    prefer-ip-address: true # 호스트명 대신 IP로 등록
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+  # Loki(Alloy)가 수집할 로그 파일
+  file:
+    name: ${OBS_LOG_DIR:C:/Users/user/tools/observability/logs}/${spring.application.name}.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - metrics
+          - prometheus
+  # Prometheus 수집용: 모든 메트릭에 application 태그를 붙이고, p95/p99 계산용 히스토그램 활성화
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+  tracing:
+    sampling:
+      probability: 1.0 # 100% 다 전달
+    propagation: # 모든 서비스가 같은 형식을 써야 추적이 끊기지 않음
+      consume: B3
+      produce: B3
+  zipkin:
+    tracing:
+      # Zipkin 서버에 로그를 전달 및 저장하고자 할 때 쓰일 엔드포인트
+      endpoint: http://localhost:9411/api/v2/spans
